@@ -9,7 +9,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException, Header, Request
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
-from air_llm import AutoModelForCausalLM
+from airllm import AutoModelForCausalLM
 import torch
 
 # ---------------------------------------------------------

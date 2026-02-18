@@ -1,0 +1,6 @@
+[submodule "/mnt/c/Users/micro/source/github/airllm-server/airllm"]
+	path = /mnt/c/Users/micro/source/github/airllm-server/airllm
+	url = https://github.com/lyogavin/airllm.git
+[submodule "airllm"]
+	path = airllm
+	url = https://github.com/lyogavin/airllm.git

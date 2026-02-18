@@ -83,30 +83,12 @@ install_base_packages() {
 # Install CUDA Toolkit 12.6
 ###############################################
 install_cuda() {
-    if ! dpkg-query -W -f='${Status}' "cuda-keyring" 2>/dev/null | grep -q "install ok installed"; then
-        echo "Installing CUDA Toolkit ${CUDA_VERSION}..."
-
-        # Remove the old key
-        sudo apt-key del 7fa2af80
-
-        wget -q "$KEYRING_URL" -O cuda-keyring.deb
-        sudo dpkg -i cuda-keyring.deb
-        rm cuda-keyring.deb
-
-        sudo apt-get update
-        sudo apt-get install -y cuda-toolkit-${CUDA_VERSION}
-
-        echo 'export PATH=/usr/local/cuda/bin:$PATH' >> ~/.bashrc
-        echo 'export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH' >> ~/.bashrc
-
-        echo "CUDA Toolkit installed."
-    fi
-}
-
-install_cuda() {
     # Install keyring if missing
     if ! dpkg-query -W -f='${Status}' "cuda-keyring" 2>/dev/null | grep -q "install ok installed"; then
         echo "Installing CUDA keyring..."
+
+        # Remove the old key
+        sudo apt-key del 7fa2af80
 
         wget -q "$KEYRING_URL" -O cuda-keyring.deb
         sudo dpkg -i cuda-keyring.deb
@@ -135,8 +117,6 @@ install_cuda() {
     echo "CUDA installation complete."
 }
 
-
-
 ###############################################
 # Install PyTorch (CUDA 12.6 wheel)
 ###############################################
@@ -158,7 +138,6 @@ install_airllm() {
     fi
 
     pip install -r "$REPO_DIR/requirements.txt"
-    pip install -e "$AIRLLM_DIR"
 }
 
 ###############################################
