@@ -1,0 +1,18 @@
+[Unit]
+Description=AirLLM Local LLM Server
+After=network.target
+
+[Service]
+User=YOUR_USERNAME
+Group=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/airllm-server
+Environment="AIRLLM_DEFAULT_MODEL=meta-llama/Meta-Llama-3-8B-Instruct"
+Environment="AIRLLM_API_KEY=CHANGE_ME"
+ExecStart=/home/YOUR_USERNAME/airllm-server/.venv/bin/python -m uvicorn airllm_server:app --host 0.0.0.0 --port 8000 --workers 1
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,101 @@
+##############################
+# Python
+##############################
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.pkl
+*.egg-info/
+*.egg
+*.log
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build artifacts
+build/
+dist/
+*.whl
+
+##############################
+# Emacs
+##############################
+*~
+\#*\#
+.\#*
+auto-save-list/
+tramp/
+eshell/history
+eshell/lastdir
+
+# Projectile / Emacs project files
+.projectile
+.dir-locals.el
+
+##############################
+# CUDA / GPU toolchain
+##############################
+# NVCC temporary files
+*.cubin
+*.fatbin
+*.ptx
+*.gpu
+*.sass
+*.ll
+*.o
+*.obj
+
+# CUDA cache
+.nv/
+nvvm/
+ComputeCache/
+
+##############################
+# AirLLM submodule artifacts
+##############################
+airllm/.cache/
+airllm/__pycache__/
+airllm/*.pyc
+
+##############################
+# FastAPI / Uvicorn runtime
+##############################
+*.db
+*.sqlite
+*.sqlite3
+*.pid
+
+# Uvicorn reload cache
+.reload/
+
+##############################
+# Logs
+##############################
+logs/
+*.log
+*.out
+*.err
+
+##############################
+# Environment / secrets
+##############################
+.env
+.env.*
+*.secret
+*.key
+
+##############################
+# System / OS
+##############################
+.DS_Store
+Thumbs.db
+
+##############################
+# Editor / IDE
+##############################
+.vscode/
+.idea/
